@@ -1,0 +1,6 @@
+[{{cookiecutter.vm_name}}]
+{{cookiecutter.private_ip}}
+
+[{{cookiecutter.vm_name}}:vars]
+ansible_ssh_user={{cookiecutter.ansible_ssh_user}}
+ansible_sudo_pass={{cookiecutter.ansible_ssh_pass}}

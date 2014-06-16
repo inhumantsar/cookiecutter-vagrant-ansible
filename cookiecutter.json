@@ -1,0 +1,16 @@
+{
+    "vm_name": "main",
+    "box": "base",
+    "machine_hostname": "dev-box",
+    "forwarded_guest_port": "80",
+    "forwarded_host_port": "8080",
+    "private_ip": "192.168.80.10",
+
+    "ansible_playbook": "provisioning/development.yml",
+    "ansible_inventory_path": "provisioning/ansible_hosts",
+    "ansible_host_key_checking": "false",
+    "ansible_verbosity_level": "v",
+    "ansible_remote_user": "vagrant",
+    "ansible_ssh_user": "vagrant",
+    "ansible_ssh_pass": "vagrant"
+}

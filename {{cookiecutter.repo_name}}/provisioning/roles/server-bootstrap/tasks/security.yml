@@ -1,0 +1,38 @@
+{% raw %}
+---
+  - name: bootstrap | Installing fail2ban
+    apt:
+      pkg=fail2ban
+      state=latest
+
+  - name: bootstrap | Installing unattended-upgrades
+    apt:
+      pkg=unattended-upgrades
+      state=latest
+
+  - name: bootstrap | Copying unattended upgrades config files
+    template:
+      src={{item}}
+      dest=/etc/apt/apt.conf.d/{{item}}
+      owner=root
+      group=root
+      mode=700
+    with_items:
+      - 10periodic
+      - 50unattended-upgrades
+  - name: bootstrap | Enabling ufw
+    ufw:
+      state: "{{bootstrap_ufw_state}}"
+
+  - name: bootstrap | Enabling ssh in ufw
+    ufw:
+      rule=allow
+      name=OpenSSH
+
+  - name: bootstrap | Enabling port {{bootstrap_ufw_allow_port}} in ufw
+    ufw:
+      rule=allow
+      port={{bootstrap_ufw_allow_port}}
+      proto=tcp
+
+{% endraw %}

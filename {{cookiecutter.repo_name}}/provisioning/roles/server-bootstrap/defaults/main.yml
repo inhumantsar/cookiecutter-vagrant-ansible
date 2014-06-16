@@ -1,0 +1,18 @@
+{% raw %}
+---
+# Main
+bootstrap_upgrade_system: true
+bootstrap_locale: en_US.UTF-8
+bootstrap_timezone: "America/Argentina/Buenos_Aires"
+bootstrap_install_dev_packages: true
+bootstrap_python_install: true
+
+# Python install
+bootstrap_python_install: true
+bootstrap_virtualenv_workon_home: Envs
+
+# Security
+bootstrap_ufw_allow_port: 80
+bootstrap_ufw_state: enabled
+
+{% endraw %}
