@@ -5,6 +5,12 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  # Defining hardware parameters for the vm
+  config.vm.provider "virtualbox" do |v|
+      v.memory = {{cookiecutter.vm_ram}}
+      v.cpus = {{cookiecutter.vm_cpus}}
+  end
+
   config.vm.define "{{cookiecutter.vm_name}}", autostart: false do |machine|
       machine.vm.box = "{{cookiecutter.box}}"
       machine.vm.hostname = "{{cookiecutter.machine_hostname}}"

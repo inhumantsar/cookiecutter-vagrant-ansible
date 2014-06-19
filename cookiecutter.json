@@ -5,6 +5,8 @@
     "forwarded_guest_port": "80",
     "forwarded_host_port": "8080",
     "private_ip": "192.168.80.10",
+    "vm_ram": 1024,
+    "vm_cpus": 1,
 
     "ansible_playbook": "provisioning/development.yml",
     "ansible_inventory_path": "provisioning/ansible_hosts",
