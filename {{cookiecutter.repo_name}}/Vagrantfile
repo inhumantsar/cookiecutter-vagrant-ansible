@@ -1,9 +1,4 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure("2") do |config|
 
   # Defining hardware parameters for the vm
   config.vm.provider "virtualbox" do |v|
@@ -12,17 +7,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "{{cookiecutter.vm_name}}", autostart: false do |machine|
-      machine.vm.box = "{{cookiecutter.box}}"
-      machine.vm.hostname = "{{cookiecutter.machine_hostname}}"
-      machine.vm.network "forwarded_port", guest: {{cookiecutter.forwarded_guest_port}}, host: {{cookiecutter.forwarded_host_port}}
+      machine.vm.box = "{{cookiecutter.vm_box}}"
+      machine.vm.hostname = "{{cookiecutter.vm_hostname}}"
       # set a bridged interface in the VM
       # machine.vm.network "public_network", bridge: "eth0"
       machine.vm.network "private_network", ip: "{{cookiecutter.private_ip}}"
       machine.vm.provision :ansible do |ansible|
-            ansible.playbook = "{{cookiecutter.ansible_playbook}}"
-            ansible.inventory_path = "{{cookiecutter.ansible_inventory_path}}"
-            ansible.host_key_checking = "{{cookiecutter.ansible_host_key_checking}}"
-            ansible.verbose = "{{cookiecutter.ansible_verbosity_level}}"
+            ansible.playbook = "ansible/playbook.yml"
+            ansible.inventory_path = "ansible/inventory"
+            ansible.host_key_checking = "false"
+            ansible.verbose = "v"
       end
   end
 end

@@ -1,3 +1,0 @@
-{% raw %}
-{{bootstrap_timezone}}
-{% endraw %}

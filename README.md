@@ -1,29 +1,28 @@
 # cookiecutter-vagrant-ansible
 
-Cookiecutter template to start using Vagrant + Ansible. For more info on cookiecutter
-see https://github.com/audreyr/cookiecutter.
+[Cookiecutter](https://github.com/audreyr/cookiecutter) template to start using [Vagrant](http://vagrantup.com) + [Ansible](http://ansible.com).
 
 * Free software: BSD license
-* Creates a stripped Vagrantfile with sensible defaults for using Ansible
+* Creates a basic Vagrantfile with sensible defaults for using Ansible
 * Creates a standard provisioning directory with roles, vars, handlers, etc.
-* Includes a role to bootstrap an Ubuntu Server using sensible defaults. This role can be used a basis to create your own roles. Also, check Ansible Galaxy (http://galaxy.ansible.com).
 
 ## Usage
 
 * This template assumes you have a recent version of [Vagrant](http://vagrantup.com) and
-[Ansible](http://ansibleworks.com), and you know how to use them.
-* Also assumes you have a box named 'base' installed.
-* If you have all that, then:
-
-Create a directory somewhere and cd to it.
-
-Now generate the skeleton:
+[Ansible](http://ansible.com), and you know how to use them.
+* Uses the 'centos/7' box by default.
 
 ```
-cookiecutter https://github.com/MSA-Argentina/cookiecutter-vagrant-ansible.git
+cookiecutter gh:inhumantsar/cookiecutter-vagrant-ansible
 ```
 
 Finally:
 
-* Customize the Vagrantfile, ansible_hosts, vars.yml and the two roles: common and application
+* Customize the `Vagrantfile` as needed.
+* Update `vars.yml` and `playbook.yml` as needed.
+* Add roles directly or with `roles/requirements.yml`.
 * Start the VM with `vagrant up`
+
+## Credits
+
+Originally forked from https://github.com/MSA-Argentina/cookiecutter-vagrant-ansible

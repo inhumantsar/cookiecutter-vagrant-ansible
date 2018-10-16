@@ -1,4 +1,0 @@
-{% raw %}
-LC_ALL="{{common_lc_all}}"
-LANG={{common_lc_all}}
-{% endraw %}

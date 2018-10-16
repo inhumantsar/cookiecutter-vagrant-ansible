@@ -1,9 +1,9 @@
 ---
 - hosts: {{cookiecutter.vm_name}}
-  roles:
-    - server-bootstrap
   remote_user: {{cookiecutter.ansible_remote_user}}
-  sudo: yes
-  gather_facts: yes
+  become: true
+  gather_facts: true
   vars_files:
     - vars.yml
+  tasks:
+    - debug: msg="Hello, world!"
